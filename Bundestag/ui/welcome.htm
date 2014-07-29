@@ -1,0 +1,101 @@
+ <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">DEParty</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#personen">Personen</a></li>
+            <li><a href="#eineseite">eineSeite</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">Über das Projekt</a></li>
+            <li><a href="#imprint">Impressum</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	
+
+    <div class="container">
+    <div class="page-header">
+	  <h1>DEParty<small>ein OpenData Projekt, have fun</small></h1>
+	</div>
+		<h3>Abstimmungen</h3>	
+		<table class="table table-striped">
+	      <thead>
+	        <tr>
+	          <th>#</th>
+	          <th>Datum</th>
+	          <th>Beschreibung</th>
+	          <th>Ergebnis</th>
+	          <th>Departysanten</th>
+	        </tr>
+	      </thead>
+	  
+	      <tbody>
+	        <tr>
+	          <td>1</td>
+	          <td>31.01.2014</td>
+	          <td>Antrag der Bundesregierung Fortsetzung der Beteiligung bewaffneter..</td>
+	          <td class="success">zugestimmt</td>
+	          <td><span class="badge pull-left">13</span>  (14% SPD) <a href="#"><span class="glyphicon glyphicon-info-sign"></span></a></td>
+	        </tr>
+	      </tbody>
+	    </table>
+	<div class="alert alert-infobox fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      
+      <h3>Abweichungen nach Partei</h3>
+	<p>Thema: Antrag der Bundesregierung Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte an der AU/UN-Hybrid-Operation in Darfur</p>
+		<div class="row">
+	  		<div class="col-md-8"><canvas id="canvas" height="400" width="400"></canvas></div>
+		    <script>
+			var doughnutData = [	
+			  {value :50,color:"#000000"},{value :50,color:"#FE0002"}];	  var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
+			</script>
+			
+			
+			  <div class="col-md-4">
+			  	<table class="table table-striped">
+			      <thead>
+			        <tr>
+			          <th>#</th>
+			          <th>Name</th>
+			          <th>Partei</th>
+			          <th>Stimmte</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td>1</td>
+			          <td>Ilse Aigner</td>
+			          <td>CDU</td>
+			          <td>Nein</td>
+			        </tr>
+			        <tr>
+			          <td>2</td>
+			          <td>Oskar Lafontaine</td>
+			          <td>DIE LINKE.</td>
+			          <td>Ja</td>
+			        </tr>
+			      </tbody>
+			    </table>
+			  </div>
+		</div>
+    </div>
+
+    <div class="alert alert-warning fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <p> hier folgt die Person Ansicht</p>
+    </div>
+	
+    </div> <!-- /container -->
+	

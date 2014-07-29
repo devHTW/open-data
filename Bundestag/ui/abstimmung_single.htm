@@ -1,0 +1,39 @@
+<div class="alert alert-infobox fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      
+      <h3>Abweichungen nach Partei</h3>
+	<p>Thema: Antrag der Bundesregierung Fortsetzung der Beteiligung bewaffneter deutscher Streitkräfte an der AU/UN-Hybrid-Operation in Darfur</p>
+		<div class="row">
+	  		<div class="col-md-8"><canvas id="canvas" height="400" width="400"></canvas></div>
+		    <script>
+			var doughnutData = [	
+			  {value :50,color:"#000000"},{value :50,color:"#FE0002"}];	  var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
+			</script>
+			  <div class="col-md-4">
+			  	<table class="table table-striped">
+			      <thead>
+			        <tr>
+			          <th>#</th>
+			          <th>Name</th>
+			          <th>Partei</th>
+			          <th>Stimmte</th>
+			        </tr>
+			      </thead>
+			      <tbody>
+			        <tr>
+			          <td>1</td>
+			          <td>Ilse Aigner</td>
+			          <td>CDU</td>
+			          <td>Nein</td>
+			        </tr>
+			        <tr>
+			          <td>2</td>
+			          <td>Dr. Gregor Gysi</td>
+			          <td>DIE LINKE.</td>
+			          <td>Ja</td>
+			        </tr>
+			      </tbody>
+			    </table>
+			  </div>
+		</div>
+    </div>

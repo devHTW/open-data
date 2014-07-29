@@ -1,0 +1,16 @@
+<div class="alert alert-warning fade in">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <div class="row">
+	  <div class="col-md-6"><dl>
+    	<repeat group="{{ @person_single }}" value="{{ @person_single }}">
+		<dt>Name</dt>
+		<dd>{{ @person_single.vorname }} {{ @person_single.nachname }}</dd>
+		<dt>Beruf</dt>
+		<dd>{{ @person_single.beruf }}</dd>
+		<dt>Fraktion</dt>
+		<dd>{{ @person_single.partei }}</dd>
+	</dl></div>
+	  <div class="col-md-6"><img src="http://www.bundestag.de/image/241008/Hochformat__2x3/177/265/255f4399723bbbc474592beb57e27043/EA/gysi_gregor_gross.jpg"/>
+	  </div>
+	</div>
+</div>

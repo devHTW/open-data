@@ -1,0 +1,329 @@
+<html>
+	<head>
+		<title>EU-Map</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css">
+		
+		<!--[if lte IE 8]>
+			<link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" />
+		<![endif]-->
+		
+		  <style>
+				html, body {
+					width:100%; 
+					height:100%; 
+					padding: 0; 
+					margin: 0;
+				}
+				
+				#map { 
+					width: 100%; 
+					height:100%; 
+					background: #EEEEEE;
+					
+				}
+				
+				#menu { 
+						position: absolute;
+						top: -20px;
+						left: 40px;
+						margin: 0%;
+						padding: 1%;
+						background: transparent; 
+						z-index:10;
+				}
+				
+				#menu a { 
+					margin: 15px 10px 0 0;
+					float: left;
+					width: 70px;
+					padding: 10px;
+					text-align: center;
+					font: bold 11px "Helvetica",Arial;
+					line-height: normal;
+					color: #AAAAAA;
+					border-radius: 4px;
+					border: none;
+					background: #333333;
+					text-decoration: none;
+					
+				}
+				
+				
+				#menu a.selected,
+				#menu a:hover { 
+					color: #FFFFFF;
+					background: #000000;
+				}
+				
+				#menu a.EVP.selected,
+				#menu a.EVP:hover {
+					color: #F0F0F0;
+					background: #3399FF;
+				}
+				
+				#menu a.SD.selected,
+				#menu a.SD:hover {
+					color: #F0F0F0;
+					background: #FA0A0A;
+				}
+				
+				#menu a.ALDE.selected,
+				#menu a.ALDE:hover {
+					color: #AAAAAA;
+					background: #FAFA0A;
+				}
+				
+				#menu a.GRUENEEFA.selected,
+				#menu a.GRUENEEFA:hover {
+					color: #F0F0F0;
+					background: #0A990A;
+				}
+				
+				#menu a.ECR.selected,
+				#menu a.ECR:hover {
+					color: #F0F0F0;
+					background: #0A0AFA;
+				}
+				
+				#menu a.KVELNGL.selected,
+				#menu a.KVELNGL:hover {
+					color: #F0F0F0;
+					background: #990A0A;
+				}
+				
+				#menu a.EFD.selected,
+				#menu a.EFD:hover {
+					color: #F0F0F0;
+					background: #FF990A;
+				}
+				
+				canvas#myChart {
+					width: 150px;
+					height: 150px;
+					position: absolute;
+					top: 90px;
+					z-index: 999;
+					left: 60px;
+				}
+				
+				.legende {
+					width: 410px;
+					height: 340px;
+					position: absolute;
+					background: #FFFAFA;
+					z-index: 997;
+					top: 370;
+					left: 60px;
+					border-width:1px;
+					border-style:solid;
+				}
+				
+				
+
+				
+				
+				.legende #evp-color{
+					top: 48px;
+					left: 15px;
+					position: absolute;
+					background: #3399FF;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				
+				.legende #sd-color{
+					top: 94px;
+					left: 15px;
+					position: absolute;
+					background: #FA0A0A;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				.legende #alde-color{
+					top: 127px;
+					left: 15px;
+					position: absolute;
+					background: #FAFA0A;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				.legende #greensefa-color{
+					top: 159px;
+					left: 15px;
+					position: absolute;
+					background: #0A990A;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				.legende #guengl-color{
+					top: 192px;
+					left: 15px;
+					position: absolute;
+					background: #990A0A;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				.legende #ecr-color{
+					top: 239px;
+					left: 15px;
+					position: absolute;
+					background: #0A0AFA;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				.legende #efd-color{
+					top: 272px;
+					left: 15px;
+					position: absolute;
+					background: #FF990A;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				.legende #ni-color{
+					top: 305px;
+					left: 15px;
+					position: absolute;
+					background: #999999;
+					width: 5px;
+					height: 5px;
+					border-width:1px;
+					border-style:solid;
+					z-index:999;
+				}
+				
+				
+				h4 {
+					padding-left: 5px;
+					font-family:'Arial';
+					padding-top: 5px;
+				}
+			
+				.legende2{
+  		Font: 13px "Helvetica",Arial;
+		border: 1px solid black;
+		position: absolute;
+		margin: 10px;
+		padding: 5px;
+		bottom: 30px;
+		z-index: 1000;
+		background: white;
+  		}
+	.b li {
+  			list-style-type: square;
+  			color:red;
+  		}
+  	.b li.evp{
+  		color:#3399FF;
+  	}
+  	.b li.sd{
+  		color:#FA0A0A;
+  	}
+
+  	.b li.alde{
+  		color:#FAFA0A;
+  	}
+  	.b li.greensefa{
+  		color:#0A990A;
+  	}
+  	.b li.guengl{
+  		color:#990A0A;
+  	}
+	.b li.ecr{
+  		color:#0A0AFA;
+  	}
+	.b li.efd{
+		color: #FF990A;
+	}
+	.b li.ni{
+		color: #999999;
+	}
+  	.b li span{
+		color:black;
+  	}
+
+		</style>
+		
+	<script type="infowindow/html" id="infowindow_template">
+	  <div class="cartodb-popup">
+		<a href="#close" class="cartodb-popup-close-button close">x</a>
+		 <div class="cartodb-popup-content-wrapper">
+		   <div class="cartodb-popup-header">
+			 <img style="width: 100%" src="http://cartodb.com/assets/logos/logos_full_cartodb_light-5ef5e4ff558f4f8d178ab2c8faa231c1.png"></src>
+		   </div>
+		   <div class="cartodb-popup-content">
+			 <!-- content.data contains the field info -->
+			 <h4>City: </h4>
+			 <p></p>
+		   </div>
+		 </div>
+     <div class="cartodb-popup-tip-container"></div>
+  </div>
+</script>
+		
+	</head>
+	
+	<body>
+	<div id="menu"> 
+		<a href="layerWechsel.html#EVP" id="EVP" class="button EVP">EVP</a> 
+		<a href="layerWechsel.html#SD" id="SD" class="button SD">S&D</a>
+		<a href="layerWechsel.html#ALDE" id="ALDE" class="button ALDE">ALDE</a> 
+		<a href="layerWechsel.html#GRUENEEFA" id="GRUENEEFA" class="button GRUENEEFA">GRÜNE/EFA</a>
+		<a href="layerWechsel.html#ECR" id="ECR" class="button ECR">ECR</a> 
+		<a href="layerWechsel.html#KVELNGL" id="KVELNGL" class="button KVELNGL">KVEL/NGL</a>
+		<a href="layerWechsel.html#EFD" id="EFD" class="button EFD">EFD</a> 
+		<a href="layerWechsel.html#NI" id="NI" class="button NI">NI</a>
+	</div>
+ 
+  	<div class="legende2">
+  	<h2>Gruppierungen:</h2>
+  		<ul class="b">
+		  <li class="evp"><span>EPP-ED : Fraktion der Europäischen Volkspartei(Christdemokraten) und europäischer Demokraten</span></li>
+		  <li class="sd"><span>PES oder S&D: Sozialdemokratische Fraktion im Europäischen Parlament</span></li>
+		  <li class="alde"><span>ALDE : Fraktion der Allianz der Liberalen und Demokraten für Europa</span></li>
+		  <li class="greensefa"><span>GREENS/ EFA : Fraktion der Grünen/Freie Europäische Allianz</span></li>
+		  <li class="guengl"><span>GUE/ NGL : Konföderale Fraktion der Vereinigten Europäischen Linken/Nordische Grüne Linke</span></li>
+		  <li class="ecr"><span>ECR: Allianz der Europäische Konservative und Reformisten</span></li>
+		  <li class="efd"><span>EFD: Allianz der Parteien für ein Europa der Freiheit und der Demokratie</span></li>
+		  <li class="ni"><span>NI: Fraktionslose Parteien</span></li>
+		</ul>
+		<p><a href="http://www.results-elections2014.eu/xml/2014/data.xml">© European Union,[2014] – Source: European Parliament'</a></p>
+  	</div>
+	<div id="map"> </div>
+	
+
+	<canvas id="myChart" width="150px" height="150px"></canvas>
+	
+	
+	
+	
+	<script src="http://libs.cartocdn.com/cartodb.js/v3/cartodb.js"></script>
+	<script type="text/javascript" language="JavaScript" src="js/Chart.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+
+	
+	</body>
+	
+</html>
+
